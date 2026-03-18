@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Unidades e Cores CSS</title>
+
+  <style>
+    /* :root define variáveis globais */
+    :root {
+      font-size: 16px; /* base para rem */
+      --cor-principal: hsl(210, 100%, 50%); /* cor usando HSL */
+      --cor-secundaria: hsla(340, 80%, 60%, 0.7); /* HSL com transparência */
+    }
+
+    body {
+      margin: 0; /* remove margem padrão */
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #141e30, #243b55); /* gradiente com HEX */
+      color: white;
+    }
+
+    /* HEADER usa VH (altura da tela) */
+    header {
+      height: 20vh; /* 20% da altura da tela */
+      background-color: var(--cor-principal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem; /* relativo ao root */
+    }
+
+    /* MAIN usa VW (largura da tela) */
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2vw; /* espaço entre elementos baseado na largura da tela */
+      padding: 2vw;
+    }
+
+    /* CARD padrão */
+    .card {
+      border-radius: 1em; /* relativo ao tamanho da fonte do elemento */
+      padding: 2em; /* relativo ao próprio elemento */
+      flex: 1 1 300px; /* responsivo */
+      min-width: 30ch; /* baseado na largura de caracteres */
+      max-width: 40vmin; /* menor dimensão da tela */
+      border: 3px solid currentColor; /* usa a cor do texto */
+      box-shadow: 0 0 10px rgba(0,0,0,0.3); /* sombra com transparência */
+      transition: transform 0.3s;
+    }
+
+    /* Efeito ao passar o mouse */
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    /* ---------------- EXEMPLOS ---------------- */
+
+    /* PX = tamanho fixo */
+    .px {
+      background-color: blue; /* nome de cor */
+      width: 300px; /* largura fixa */
+      height: 150px;
+    }
+
+    /* % = relativo ao elemento pai */
+    .percent {
+      background-color: #ff5733; /* cor HEX */
+      width: 50%; /* metade do container */
+    }
+
+    /* EM e REM */
+    .em-rem {
+      font-size: 1.5rem; /* relativo ao root (16px → 24px) */
+      padding: 2em; /* relativo ao próprio font-size */
+      background-color: rgb(34, 139, 34); /* RGB */
+    }
+
+    /* VW e VH = relativo à tela */
+    .viewport {
+      width: 40vw; /* 40% da largura da tela */
+      height: 25vh; /* 25% da altura da tela */
+      background-color: rgba(255, 255, 0, 0.6); /* RGB com transparência */
+      color: black;
+    }
+
+    /* VMIN, VMAX, CH, EX */
+    .advanced {
+      width: 40vmax; /* baseado na MAIOR dimensão da tela */
+      height: 20vmin; /* baseado na MENOR dimensão */
+      font-size: 3ch; /* largura de caracteres */
+      line-height: 2ex; /* altura do "x" da fonte */
+      color: var(--cor-principal);
+      background-color: var(--cor-secundaria);
+    }
+
+    /* TRANSPARENT */
+    .advanced span {
+      display: block;
+      margin-top: 1em;
+      background-color: transparent; /* sem fundo */
+    }
+
+    footer {
+      height: 10vh;
+      background: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    Unidades e Cores em CSS
+  </header>
+
+  <main>
+
+    <div class="card px">
+      <strong>PX</strong><br>
+      Tamanho fixo (não muda com a tela)
+    </div>
+
+    <div class="card percent">
+      <strong>%</strong><br>
+      Depende do tamanho do elemento pai
+    </div>
+
+    <div class="card em-rem">
+      <strong>EM / REM</strong><br>
+      Baseado na fonte (rem = root, em = elemento)
+    </div>
+
+    <div class="card viewport">
+      <strong>VW / VH</strong><br>
+      Baseado na largura/altura da tela
+    </div>
+
+    <div class="card advanced">
+      <strong>VMIN / VMAX / CH / EX</strong>
+      <span>Unidades avançadas de tela e texto</span>
+    </div>
+
+  </main>
+
+  <footer>
+    Cores: nome, HEX, RGB, RGBA, HSL, HSLA, transparent e currentColor
+  </footer>
+
+</body>
+</html>
